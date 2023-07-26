@@ -9,15 +9,35 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:concourse-ci-connector.downloadFlyCLI"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "concourse-ci-connector.helloWorld",
-        "title": "Hello World"
+        "title": "Concourse CI Connector: Hello World"
+      },
+      {
+        "command": "concourse-ci-connector.downloadFlyCli",
+        "title": "Concourse CI Connector: Download fly CLI"
+      },
+      {
+        "command": "concourse-ci-connector.configureHost",
+        "title": "Concourse CI Connector: Configure host"
       }
-    ]
+    ],
+    "configuration": {
+    "title": "Concourse CI Connector",
+    "properties": {
+      "concourse-ci-connector.host": {
+        "type": "string",
+        "default": "",
+        "description": "The host URL to use for the Concourse CI connector"
+      }
+    }
+  }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

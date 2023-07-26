@@ -1,0 +1,15 @@
+- [x] Add extension configuration option to set host information
+- [x] Add functionality to download fly binary to extension folder from configured host and use that for any extension fly commands
+- [ ] Write base extension to login and connect for remembering target (login should open browser and store tokens in vscode session storage)
+- [ ] Base extension should have it's own menu in the sidebar
+- [ ] Fetch information from target and display in sidebar menu
+- [ ] Display connection status in status bar
+- [ ] Add ability to open pipelines in browser upon clicking
+- [ ] Add ability to list builds and open them in browser upon clicking
+- [ ] Add ability to pause and unpause pipelines
+- [ ] Add ability to trigger a new build of pipeliens
+- [ ] Add ability to watch source files for pipelines and tasks
+- [ ] Add launch/debug configuration for tasks
+- [ ] Add launch/debug configuration for pipelines
+- [ ] Add functionality to remember previous local inputs and re-use them for debugging purposes
+- [ ] Add ability to add named local inputs for usage in debugging
