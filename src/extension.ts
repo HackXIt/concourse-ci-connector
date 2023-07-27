@@ -3,7 +3,7 @@
  * Created on: Wednesday, 2023-07-26 @ 10:21:21
  * Author: HackXIt (<hackxit@gmail.com>)
  * -----
- * Last Modified: Wednesday, 2023-07-26 @ 14:39:05
+ * Last Modified: Thursday, 2023-07-27 @ 15:24:35
  * Modified By:  HackXIt (<hackxit@gmail.com>) @ SE6802S
  * -----
  */
@@ -12,6 +12,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import { ConcourseManager } from './concourseManager';
+import { ConcourseExplorerProvider } from './concourseExplorer';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -46,6 +47,17 @@ export function activate(context: vscode.ExtensionContext) {
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World from Concourse CI connector!');
 	}));
+
+    const workspaceFolders = vscode.workspace.workspaceFolders;
+
+    if (workspaceFolders && workspaceFolders.length > 0) {
+        const concourseExplorerProvider = new ConcourseExplorerProvider(workspaceFolders);
+        vscode.window.registerTreeDataProvider('concourse-ci-connector', concourseExplorerProvider);
+    } else {
+        // Handle case when there are no workspace folders
+        const concourseExplorerProvider = new ConcourseExplorerProvider([]);
+        vscode.window.registerTreeDataProvider('concourse-ci-connector', concourseExplorerProvider);
+    }
 }
 
 // This method is called when your extension is deactivated
